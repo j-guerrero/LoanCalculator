@@ -18,6 +18,8 @@ namespace LoanUI
             InitializeComponent();
         }
 
+        // TODO -- Load <Person>
+
         private void generateReportButton_Click(object sender, EventArgs e)
         {
             if(ValidateForm())
@@ -27,8 +29,10 @@ namespace LoanUI
                     aprValue.Text,
                     monthsValue.Text);
 
+                // TODO --- Add loan to List<Loans> for <Person>
+
                 decimal totalInterestPaid = (loan.LoanAmount * ((decimal)loan.Apr / 100));
-                minimumMonthlyPaymentValue.Text = LoanModel.calculateMinimumPayment(loan).ToString();
+                minimumMonthlyPaymentValue.Text = LoanLogic.calculateMinimumPayment(loan).ToString();
                 totalInterestPaidValue.Text = totalInterestPaid.ToString() ;
                 totalAmountPaidValue.Text = (loan.LoanAmount + totalInterestPaid).ToString();
 
@@ -65,6 +69,10 @@ namespace LoanUI
             totalAmountPaidLabel.Show();
         }
 
+        /// <summary>
+        /// Validates form information in order to generate <Loan> object
+        /// </summary>
+        /// <returns> Boolean flag if validation is true </returns>
         private bool ValidateForm()
         {
             bool output = true;
@@ -94,6 +102,10 @@ namespace LoanUI
             return output;
         }
 
+        /// <summary>
+        /// Changes form view depending on selection from ComboBox calculationTypeSelector
+        /// </summary>
+        /// TODO -- Return/set enum to tell logic which calculation to use
         private void calculationTypeSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (calculationTypeSelector.SelectedIndex == 0)

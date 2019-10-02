@@ -15,6 +15,9 @@
 *.userosscache
 *.sln.docstates
 
+#User-specified folders
+*/.vshistory/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

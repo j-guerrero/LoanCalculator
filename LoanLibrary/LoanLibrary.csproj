@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoanLogic.cs" />
     <Compile Include="LoanModel.cs" />
     <Compile Include="PeopleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

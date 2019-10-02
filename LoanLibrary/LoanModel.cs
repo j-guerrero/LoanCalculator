@@ -23,6 +23,13 @@ namespace LoanLibrary
 
         }
 
+        /// <summary>
+        /// Sets values recieved by form. Values checked for validation in form before given to constructor.
+        /// </summary>
+        /// <param name="loanAmount">Total amount of loan</param>
+        /// <param name="apr">Annual Percentage Rate</param>
+        /// <param name="months">Term in months</param>
+        // TO-DO --- add enum type to handle "months vs payment" option from drop-down list in form
         public LoanModel(string loanAmount, string apr, string months)
         {
             decimal loanAmountValue = 0;
@@ -42,33 +49,5 @@ namespace LoanLibrary
             Months = monthsValue;
         }
 
-        public static int calculateMonths(LoanModel loan)
-        {
-            decimal total = loan.LoanAmount;
-            decimal interest = (decimal)(1 + loan.Apr);
-            decimal paymentAmount = loan.MinimumPayment;
-            int months = 1;
-
-            while (total > 0)
-            {
-                total = total * interest;
-                total -= paymentAmount;
-                ++months;
-            }
-
-            return months;
-        }
-
-        public static decimal calculateMinimumPayment(LoanModel loan)
-        {
-            decimal total = loan.LoanAmount;
-            decimal interest = (decimal)(loan.Apr / 100);
-            decimal paymentAmount = 0;
-            int months = loan.Months;
-
-            paymentAmount = total * (1 + interest) / months;
-
-            return paymentAmount;
-        }
     }
 }
