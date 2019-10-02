@@ -34,16 +34,16 @@
             this.generateReportButton = new System.Windows.Forms.Button();
             this.aprLabel = new System.Windows.Forms.Label();
             this.aprValue = new System.Windows.Forms.TextBox();
-            this.monthsValue = new System.Windows.Forms.TextBox();
+            this.calculationTypeValue = new System.Windows.Forms.TextBox();
             this.minimumMonthlyPaymentLabel = new System.Windows.Forms.Label();
             this.clearFormButton = new System.Windows.Forms.Button();
             this.totalInterestPaidValue = new System.Windows.Forms.TextBox();
             this.totalInterestLabel = new System.Windows.Forms.Label();
             this.calculationTypeSelector = new System.Windows.Forms.ComboBox();
             this.calculationsBox = new System.Windows.Forms.GroupBox();
-            this.minimumMonthlyPaymentValue = new System.Windows.Forms.TextBox();
             this.totalAmountPaidValue = new System.Windows.Forms.TextBox();
             this.totalAmountPaidLabel = new System.Windows.Forms.Label();
+            this.minimumMonthlyPaymentValue = new System.Windows.Forms.TextBox();
             this.calculationsBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,12 +103,12 @@
             this.aprValue.Size = new System.Drawing.Size(181, 35);
             this.aprValue.TabIndex = 5;
             // 
-            // monthsValue
+            // calculationTypeValue
             // 
-            this.monthsValue.Location = new System.Drawing.Point(220, 195);
-            this.monthsValue.Name = "monthsValue";
-            this.monthsValue.Size = new System.Drawing.Size(181, 35);
-            this.monthsValue.TabIndex = 7;
+            this.calculationTypeValue.Location = new System.Drawing.Point(220, 195);
+            this.calculationTypeValue.Name = "calculationTypeValue";
+            this.calculationTypeValue.Size = new System.Drawing.Size(181, 35);
+            this.calculationTypeValue.TabIndex = 7;
             // 
             // minimumMonthlyPaymentLabel
             // 
@@ -158,11 +158,11 @@
             this.calculationTypeSelector.Items.AddRange(new object[] {
             "Months",
             "Min Pay"});
+            this.calculationTypeSelector.SelectedIndex = 0; // Default starting index
             this.calculationTypeSelector.Location = new System.Drawing.Point(73, 192);
             this.calculationTypeSelector.Name = "calculationTypeSelector";
             this.calculationTypeSelector.Size = new System.Drawing.Size(138, 38);
             this.calculationTypeSelector.TabIndex = 13;
-            this.calculationTypeSelector.SelectedIndexChanged += new System.EventHandler(this.calculationTypeSelector_SelectedIndexChanged);
             // 
             // calculationsBox
             // 
@@ -178,17 +178,6 @@
             this.calculationsBox.TabIndex = 14;
             this.calculationsBox.TabStop = false;
             this.calculationsBox.Text = "Calculations";
-            // 
-            // minimumMonthlyPaymentValue
-            // 
-            this.minimumMonthlyPaymentValue.BackColor = System.Drawing.Color.PaleGreen;
-            this.minimumMonthlyPaymentValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.minimumMonthlyPaymentValue.Location = new System.Drawing.Point(128, 97);
-            this.minimumMonthlyPaymentValue.Name = "minimumMonthlyPaymentValue";
-            this.minimumMonthlyPaymentValue.ReadOnly = true;
-            this.minimumMonthlyPaymentValue.Size = new System.Drawing.Size(181, 28);
-            this.minimumMonthlyPaymentValue.TabIndex = 10;
-            this.minimumMonthlyPaymentValue.Visible = false;
             // 
             // totalAmountPaidValue
             // 
@@ -211,6 +200,17 @@
             this.totalAmountPaidLabel.Text = "Total Amount Paid:\r\n";
             this.totalAmountPaidLabel.Visible = false;
             // 
+            // minimumMonthlyPaymentValue
+            // 
+            this.minimumMonthlyPaymentValue.BackColor = System.Drawing.Color.PaleGreen;
+            this.minimumMonthlyPaymentValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.minimumMonthlyPaymentValue.Location = new System.Drawing.Point(128, 97);
+            this.minimumMonthlyPaymentValue.Name = "minimumMonthlyPaymentValue";
+            this.minimumMonthlyPaymentValue.ReadOnly = true;
+            this.minimumMonthlyPaymentValue.Size = new System.Drawing.Size(181, 28);
+            this.minimumMonthlyPaymentValue.TabIndex = 10;
+            this.minimumMonthlyPaymentValue.Visible = false;
+            // 
             // InputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -218,7 +218,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(469, 591);
             this.Controls.Add(this.calculationTypeSelector);
-            this.Controls.Add(this.monthsValue);
+            this.Controls.Add(this.calculationTypeValue);
             this.Controls.Add(this.aprLabel);
             this.Controls.Add(this.aprValue);
             this.Controls.Add(this.clearFormButton);
@@ -249,7 +249,7 @@
         private System.Windows.Forms.Button generateReportButton;
         private System.Windows.Forms.Label aprLabel;
         private System.Windows.Forms.TextBox aprValue;
-        private System.Windows.Forms.TextBox monthsValue;
+        private System.Windows.Forms.TextBox calculationTypeValue;
         private System.Windows.Forms.Label minimumMonthlyPaymentLabel;
         private System.Windows.Forms.Button clearFormButton;
         private System.Windows.Forms.TextBox totalInterestPaidValue;

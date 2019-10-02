@@ -13,21 +13,33 @@ namespace LoanUI
 {
     public partial class InputForm : Form
     {
+        [Flags]
+        public enum formType { 
+            monthTerm = 0, 
+            minPay = 1
+        };
+
         public InputForm()
         {
             InitializeComponent();
         }
 
-        // TODO -- Load <Person>
+        // TODO -- Load(<Person>) button
+
 
         private void generateReportButton_Click(object sender, EventArgs e)
         {
-            if(ValidateForm())
+            MessageBox.Show("OPTION SELECTED = " + $"{(formType)calculationTypeSelector.SelectedIndex}");
+
+            formType index = (formType)calculationTypeSelector.SelectedIndex;
+
+            
+            if (ValidateForm(index))
             {
                 LoanModel loan = new LoanModel(
                     totalAmountValue.Text,
                     aprValue.Text,
-                    monthsValue.Text);
+                    calculationTypeValue.Text);
 
                 // TODO --- Add loan to List<Loans> for <Person>
 
@@ -35,8 +47,8 @@ namespace LoanUI
                 minimumMonthlyPaymentValue.Text = LoanLogic.calculateMinimumPayment(loan).ToString();
                 totalInterestPaidValue.Text = totalInterestPaid.ToString() ;
                 totalAmountPaidValue.Text = (loan.LoanAmount + totalInterestPaid).ToString();
-
                 minimumMonthlyPaymentLabel.Text = "Minimum Monthly Payment:";
+
                 MakeCalculationsVisible();
             }
 
@@ -44,13 +56,15 @@ namespace LoanUI
             {
                 MessageBox.Show("This from has invalid information. Please check for valid input.");
             }
+
+
         }
 
         private void clearReportButton_Click(object sender, EventArgs e)
         {
             totalAmountValue.Text = "";
             aprValue.Text = "";
-            monthsValue.Text = "";
+            calculationTypeValue.Text = "";
             minimumMonthlyPaymentValue.Text = "";
             totalInterestPaidValue.Text = "";
             minimumMonthlyPaymentLabel.Hide();
@@ -73,7 +87,7 @@ namespace LoanUI
         /// Validates form information in order to generate <Loan> object
         /// </summary>
         /// <returns> Boolean flag if validation is true </returns>
-        private bool ValidateForm()
+        private bool ValidateForm(formType index)
         {
             bool output = true;
 
@@ -92,35 +106,28 @@ namespace LoanUI
                 output = false;
             }
 
-            int monthsAmount = 0;
-            bool monthsAmountValidNumber = int.TryParse(monthsValue.Text, out monthsAmount);
-            if (!monthsAmountValidNumber)
+            if(index == formType.monthTerm)
             {
-                output = false;
+                int monthsAmount = 0;
+                bool monthsAmountValidNumber = int.TryParse(calculationTypeValue.Text, out monthsAmount);
+                if (!monthsAmountValidNumber)
+                {
+                    output = false;
+                }
+            }
+
+            if(index == formType.minPay)
+            {
+                decimal minPayAmount = 0;
+                bool minPayAmountValidNumber = decimal.TryParse(calculationTypeValue.Text, out minPayAmount);
+                if (!minPayAmountValidNumber)
+                {
+                    output = false;
+                }
             }
 
             return output;
         }
 
-        /// <summary>
-        /// Changes form view depending on selection from ComboBox calculationTypeSelector
-        /// </summary>
-        /// TODO -- Return/set enum to tell logic which calculation to use
-        private void calculationTypeSelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (calculationTypeSelector.SelectedIndex == 0)
-            //{
-            //    minimumMonthlyPaymentLabel.Text = "Minimum Monthly Payment:";
-            //    minimumMonthlyPaymentLabel.Show();
-            //    minimumMonthlyPaymentValue.Show();
-            //}
-
-            //if (calculationTypeSelector.SelectedIndex == 1)
-            //{
-            //    minimumMonthlyPaymentLabel.Text = "Months till Payoff:";
-            //    minimumMonthlyPaymentLabel.Show();
-            //    minimumMonthlyPaymentValue.Show();
-            //}
-        }
     }
 }
