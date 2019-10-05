@@ -1,5 +1,6 @@
 ﻿using LoanLibrary;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,8 @@ namespace LoanUI
                 minimumMonthlyPaymentLabel.Text = "Minimum Monthly Payment:";
 
                 MakeCalculationsVisible();
+
+                // TODO -- MAKE TEST CONNECTION
             }
 
             else
@@ -129,5 +132,14 @@ namespace LoanUI
             return output;
         }
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            PeopleModel test = new PeopleModel("Grom");
+            string pathName = ConfigurationManager.AppSettings["filePath"] + "test.csv" ;
+            // TextConnectionModel.SaveToCsv(pathName);
+
+            TextConnectionModel.OpenFromCsv(pathName);
+
+        }
     }
 }

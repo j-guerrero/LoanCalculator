@@ -44,6 +44,7 @@
             this.totalAmountPaidValue = new System.Windows.Forms.TextBox();
             this.totalAmountPaidLabel = new System.Windows.Forms.Label();
             this.minimumMonthlyPaymentValue = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
             this.calculationsBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,9 +79,9 @@
             // 
             // generateReportButton
             // 
-            this.generateReportButton.Location = new System.Drawing.Point(109, 464);
+            this.generateReportButton.Location = new System.Drawing.Point(47, 464);
             this.generateReportButton.Name = "generateReportButton";
-            this.generateReportButton.Size = new System.Drawing.Size(250, 52);
+            this.generateReportButton.Size = new System.Drawing.Size(191, 110);
             this.generateReportButton.TabIndex = 4;
             this.generateReportButton.Text = "Generate Report";
             this.generateReportButton.UseVisualStyleBackColor = true;
@@ -122,9 +123,9 @@
             // 
             // clearFormButton
             // 
-            this.clearFormButton.Location = new System.Drawing.Point(109, 522);
+            this.clearFormButton.Location = new System.Drawing.Point(241, 464);
             this.clearFormButton.Name = "clearFormButton";
-            this.clearFormButton.Size = new System.Drawing.Size(250, 52);
+            this.clearFormButton.Size = new System.Drawing.Size(191, 52);
             this.clearFormButton.TabIndex = 4;
             this.clearFormButton.Text = "Clear Form";
             this.clearFormButton.UseVisualStyleBackColor = true;
@@ -158,7 +159,6 @@
             this.calculationTypeSelector.Items.AddRange(new object[] {
             "Months",
             "Min Pay"});
-            this.calculationTypeSelector.SelectedIndex = 0; // Default starting index
             this.calculationTypeSelector.Location = new System.Drawing.Point(73, 192);
             this.calculationTypeSelector.Name = "calculationTypeSelector";
             this.calculationTypeSelector.Size = new System.Drawing.Size(138, 38);
@@ -211,12 +211,25 @@
             this.minimumMonthlyPaymentValue.TabIndex = 10;
             this.minimumMonthlyPaymentValue.Visible = false;
             // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(241, 522);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(191, 52);
+            this.saveButton.TabIndex = 15;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // InputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(469, 591);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.calculationTypeSelector);
             this.Controls.Add(this.calculationTypeValue);
             this.Controls.Add(this.aprLabel);
@@ -259,6 +272,7 @@
         private System.Windows.Forms.TextBox minimumMonthlyPaymentValue;
         private System.Windows.Forms.TextBox totalAmountPaidValue;
         private System.Windows.Forms.Label totalAmountPaidLabel;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 

@@ -16,6 +16,8 @@ namespace LoanLibrary
         /// <returns></returns>
         public static int calculateMonths(LoanModel loan)
         {
+
+            // TODO -- REWORK CALCULATIONS
             decimal total = loan.LoanAmount;
             decimal interest = (decimal)(1 + loan.Apr);
             decimal paymentAmount = loan.MinimumPayment;
@@ -39,6 +41,7 @@ namespace LoanLibrary
         /// <returns></returns>
         public static decimal calculateMinimumPayment(LoanModel loan)
         {
+            // TODO -- REWORK CALCULATIONS
             decimal total = loan.LoanAmount;
             decimal interest = (decimal)(loan.Apr / 100);
             decimal paymentAmount = 0;
