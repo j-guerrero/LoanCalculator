@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LoanLibrary
 {
     public class LoanModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public decimal LoanAmount { get; set; }
 
-        public float Apr { get; set; }
+        public decimal Apr { get; set; }
 
         public decimal MinimumPayment { get; set; }
 
@@ -36,8 +37,8 @@ namespace LoanLibrary
             decimal.TryParse(loanAmount, out loanAmountValue);
             LoanAmount = loanAmountValue;
 
-            float aprValue = 0;
-            float.TryParse(apr, out aprValue);
+            decimal aprValue = 0;
+            decimal.TryParse(apr, out aprValue);
             Apr = aprValue;
 
             //decimal minimumPaymentValue = 0;
@@ -47,6 +48,27 @@ namespace LoanLibrary
             int monthsValue = 0;
             int.TryParse(months, out monthsValue);
             Months = monthsValue;
+        }
+
+        public LoanModel(int loanId, decimal total, decimal apr, int term, decimal minPay)
+        {
+            Id = loanId;
+            LoanAmount = total;
+            Apr = apr;
+            Months = term;
+            MinimumPayment = minPay;
+
+        }
+
+        public void DisplayInfo()
+        {
+            MessageBox.Show(
+                "ID = " + $"{Id}" + "\n" +
+                "Total Amount = " + $"{LoanAmount}" + "\n" +
+                "APR = " + $"{Apr}" + "\n" +
+                "Month Term = " + $"{Months}" + "\n" +
+                "Minimum Payment = " + $"{MinimumPayment}"
+            );
         }
 
     }

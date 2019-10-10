@@ -247,6 +247,7 @@
             this.Name = "InputForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loan Calculator";
+            this.Load += new System.EventHandler(this.InputForm_Load);
             this.calculationsBox.ResumeLayout(false);
             this.calculationsBox.PerformLayout();
             this.ResumeLayout(false);

@@ -43,7 +43,7 @@ namespace LoanLibrary
 
 
             foreach (var line in lines)
-            {
+            { 
                 string[] entries = line.Split(',');
 
                 int id;
@@ -60,13 +60,16 @@ namespace LoanLibrary
                 Int32.TryParse(entries[4], out term);
                 Decimal.TryParse(entries[5], out minPay);
 
-                MessageBox.Show($"{id}" + " " + $"{name}" + " " + $"{total}" + " " + $"{apr}" + " " + $"{term}" + " " + $"{minPay}");
+                LoanModel tempLoan = new LoanModel(id, total, apr, term, minPay);
+                // TODO -- LOAD SOMETHING INTO OBJECT
+
+                tempLoan.DisplayInfo();
 
 
             }
 
 
-            }
+        }
     }
 
     

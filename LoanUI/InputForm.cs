@@ -138,7 +138,13 @@ namespace LoanUI
             string pathName = ConfigurationManager.AppSettings["filePath"] + "test.csv" ;
             // TextConnectionModel.SaveToCsv(pathName);
 
+            // !!! -- DEBUGING --- SWITCH TO SAVE --- !!! 
             TextConnectionModel.OpenFromCsv(pathName);
+
+        }
+
+        private void InputForm_Load(object sender, EventArgs e)
+        {
 
         }
     }
