@@ -9,22 +9,40 @@ namespace LoanLibrary
 {
     public class PeopleModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public List<LoanModel> loans { get; set; }
+        public List<LoanModel> Loans { get; set; }
 
-        public string fileName { get; set; }
+        public string FileName { get; set; }
 
         public PeopleModel()
         {
-          fileName = $"{name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
+          Name = "Empty";
+          Loans = new List<LoanModel>();
+          FileName = $"{Name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
         }
 
         public PeopleModel(string name)
         {
-            fileName = $"{name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
+            FileName = $"{name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
+        }
+
+        public event EventHandler<string> LoanAddedEvent;
+
+        public void AddToLoanList(LoanModel loan)
+        {
+            Loans.Add(loan);
+            LoanAddedEvent?.Invoke(this, "Loan Added"); // use to update loanListBox in LoanListViewer
+        }
+
+        public void DisplayLoansInList()
+        {
+            foreach(var loan in Loans)
+            {
+                loan.DisplayInfo();
+            }
         }
     }
 

@@ -134,17 +134,11 @@ namespace LoanUI
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            PeopleModel test = new PeopleModel("Grom");
             string pathName = ConfigurationManager.AppSettings["filePath"] + "test.csv" ;
             // TextConnectionModel.SaveToCsv(pathName);
 
             // !!! -- DEBUGING --- SWITCH TO SAVE --- !!! 
             TextConnectionModel.OpenFromCsv(pathName);
-
-        }
-
-        private void InputForm_Load(object sender, EventArgs e)
-        {
 
         }
     }

@@ -26,5 +26,21 @@ namespace LoanUI
                 this.Close();
         }
 
+        private void loadProfileButton_Click(object sender, EventArgs e)
+        {
+            // load file from comboBox
+            // --- TEST ---
+
+            LoanListViewer loanListViewer = new LoanListViewer();
+            this.Hide();
+            loanListViewer.ShowDialog();
+            this.Close();
+        }
+
+        private void createProfileButton_Click(object sender, EventArgs e)
+        {
+            CreateProfileForm createProfileForm = new CreateProfileForm();
+            createProfileForm.ShowDialog();
+        }
     }
 }

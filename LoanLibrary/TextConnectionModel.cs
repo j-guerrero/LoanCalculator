@@ -24,15 +24,54 @@ namespace LoanLibrary
         // Take data from <Loan> object and input into file
         // Save file
 
-        public static void SaveToCsv(this string filePath)
+        public static bool SaveToCsvIndex(string filePath, string name)
         {
-            MessageBox.Show("File Path: " + $"{ filePath }");
+            bool saveSuccessful = true;
+            int length;
+            int id;
+
+            List<string> lines = new List<string>();
+            filePath += "index.csv";
+            MessageBox.Show($"{filePath}");
+
+            // Open File
+            try
+            { lines = File.ReadAllLines(filePath).ToList(); }
+            catch
+            {
+                saveSuccessful = false;
+                MessageBox.Show("Unable to open file");
+                return saveSuccessful;
+            }
+
+            length = lines.Count() - 1;
+            string[] entries = lines[length].Split(',');
+            Int32.TryParse(entries[0], out id);
+
+            MessageBox.Show("Last Index = " + $"{id}");
+
+            string output = $"{(id+1).ToString()}" + "," + $"{name}" + "\n";
+
+            try
+            {
+                File.AppendAllText(filePath, output);
+            }
+            catch
+            {
+                saveSuccessful = false;
+                MessageBox.Show("Unable to save file " + filePath);
+                return saveSuccessful;
+            }
+
+            return saveSuccessful;
+
         }
 
         public static void OpenFromCsv(this string filePath)
         {
-
+            PeopleModel profile = new PeopleModel();
             List<string> lines = new List<string>();
+            bool header = true;
 
             try {
                 lines = File.ReadAllLines(filePath).ToList();
@@ -41,36 +80,44 @@ namespace LoanLibrary
                 MessageBox.Show("Unable to open file");
             }
 
-
             foreach (var line in lines)
             { 
                 string[] entries = line.Split(',');
 
-                int id;
-                string name;
-                decimal total;
-                decimal apr;
-                int term;
-                decimal minPay;
+                if(header)
+                {
+                    profile.Name = entries[0];
+                    header = false;
+                }
 
-                Int32.TryParse(entries[0], out id);
-                name = entries[1].ToString();
-                Decimal.TryParse(entries[2], out total);
-                Decimal.TryParse(entries[3], out apr);
-                Int32.TryParse(entries[4], out term);
-                Decimal.TryParse(entries[5], out minPay);
+                else
+                {
+                    int id;
+                    decimal total;
+                    decimal apr;
+                    int term;
+                    decimal minPay;
 
-                LoanModel tempLoan = new LoanModel(id, total, apr, term, minPay);
-                // TODO -- LOAD SOMETHING INTO OBJECT
+                    Int32.TryParse(entries[0], out id);
+                    Decimal.TryParse(entries[2], out total);
+                    Decimal.TryParse(entries[3], out apr);
+                    Int32.TryParse(entries[4], out term);
+                    Decimal.TryParse(entries[5], out minPay);
 
-                tempLoan.DisplayInfo();
+                    LoanModel tempLoan = new LoanModel(id, total, apr, term, minPay);
+                    // TODO -- LOAD SOMETHING INTO OBJECT
 
-
+                    profile.AddToLoanList(tempLoan);
+                }
             }
 
-
+            profile = null;
+            lines = null;
+            
         }
     }
+
+    
 
     
 

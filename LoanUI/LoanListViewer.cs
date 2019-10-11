@@ -23,14 +23,20 @@ namespace LoanUI
 
         }
 
-       /* private PeopleModel LoadData(PeopleModel data)
+        private void LoadData(PeopleModel data)
         {
-           // initialize constructor for profile
-        }*/
+            // initialize constructor for profile
+        }
 
-        private void WireForm()
+        private void WireUpForm()
         {
             // Attach values to labels and listBox
+            profile.LoanAddedEvent += Profile_LoanAddedEvent;
+        }
+
+        private void Profile_LoanAddedEvent(object sender, string e)
+        {
+            // reload data in loanListBox
         }
 
         private void saveButton_Click(object sender, EventArgs e)

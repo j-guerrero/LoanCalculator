@@ -32,28 +32,30 @@
             this.loadProfileButton = new System.Windows.Forms.Button();
             this.simpleCalculatorButton = new System.Windows.Forms.Button();
             this.welcomeLabel = new System.Windows.Forms.Label();
+            this.createProfileButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loadProfileSelector
             // 
             this.loadProfileSelector.FormattingEnabled = true;
-            this.loadProfileSelector.Location = new System.Drawing.Point(142, 113);
+            this.loadProfileSelector.Location = new System.Drawing.Point(143, 88);
             this.loadProfileSelector.Name = "loadProfileSelector";
             this.loadProfileSelector.Size = new System.Drawing.Size(279, 38);
             this.loadProfileSelector.TabIndex = 0;
             // 
             // loadProfileButton
             // 
-            this.loadProfileButton.Location = new System.Drawing.Point(142, 163);
+            this.loadProfileButton.Location = new System.Drawing.Point(143, 132);
             this.loadProfileButton.Name = "loadProfileButton";
             this.loadProfileButton.Size = new System.Drawing.Size(278, 37);
             this.loadProfileButton.TabIndex = 1;
             this.loadProfileButton.Text = "Load Profile";
             this.loadProfileButton.UseVisualStyleBackColor = true;
+            this.loadProfileButton.Click += new System.EventHandler(this.loadProfileButton_Click);
             // 
             // simpleCalculatorButton
             // 
-            this.simpleCalculatorButton.Location = new System.Drawing.Point(143, 240);
+            this.simpleCalculatorButton.Location = new System.Drawing.Point(143, 253);
             this.simpleCalculatorButton.Name = "simpleCalculatorButton";
             this.simpleCalculatorButton.Size = new System.Drawing.Size(278, 49);
             this.simpleCalculatorButton.TabIndex = 2;
@@ -71,12 +73,23 @@
             this.welcomeLabel.TabIndex = 3;
             this.welcomeLabel.Text = "Welcome";
             // 
+            // createProfileButton
+            // 
+            this.createProfileButton.Location = new System.Drawing.Point(143, 175);
+            this.createProfileButton.Name = "createProfileButton";
+            this.createProfileButton.Size = new System.Drawing.Size(278, 37);
+            this.createProfileButton.TabIndex = 4;
+            this.createProfileButton.Text = "CreateProfile";
+            this.createProfileButton.UseVisualStyleBackColor = true;
+            this.createProfileButton.Click += new System.EventHandler(this.createProfileButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(562, 325);
+            this.Controls.Add(this.createProfileButton);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.simpleCalculatorButton);
             this.Controls.Add(this.loadProfileButton);
@@ -96,5 +109,6 @@
         private System.Windows.Forms.Button loadProfileButton;
         private System.Windows.Forms.Button simpleCalculatorButton;
         private System.Windows.Forms.Label welcomeLabel;
+        private System.Windows.Forms.Button createProfileButton;
     }
 }
