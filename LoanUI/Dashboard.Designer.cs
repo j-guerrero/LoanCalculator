@@ -33,6 +33,7 @@
             this.simpleCalculatorButton = new System.Windows.Forms.Button();
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.createProfileButton = new System.Windows.Forms.Button();
+            this.importDataButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loadProfileSelector
@@ -83,12 +84,24 @@
             this.createProfileButton.UseVisualStyleBackColor = true;
             this.createProfileButton.Click += new System.EventHandler(this.createProfileButton_Click);
             // 
+            // importDataButton
+            // 
+            this.importDataButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importDataButton.Location = new System.Drawing.Point(62, 70);
+            this.importDataButton.Name = "importDataButton";
+            this.importDataButton.Size = new System.Drawing.Size(75, 73);
+            this.importDataButton.TabIndex = 5;
+            this.importDataButton.Text = "Import Data";
+            this.importDataButton.UseVisualStyleBackColor = true;
+            this.importDataButton.Click += new System.EventHandler(this.importDataButton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(562, 325);
+            this.Controls.Add(this.importDataButton);
             this.Controls.Add(this.createProfileButton);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.simpleCalculatorButton);
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Button simpleCalculatorButton;
         private System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.Button createProfileButton;
+        private System.Windows.Forms.Button importDataButton;
     }
 }

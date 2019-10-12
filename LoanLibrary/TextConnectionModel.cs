@@ -24,7 +24,7 @@ namespace LoanLibrary
         // Take data from <Loan> object and input into file
         // Save file
 
-        public static bool SaveToCsvIndex(string filePath, string name)
+        public static bool AddNewProfileToIndex(string filePath, string name)
         {
             bool saveSuccessful = true;
             int length;
@@ -65,6 +65,34 @@ namespace LoanLibrary
 
             return saveSuccessful;
 
+        }
+
+        public static List<List<string>> ImportProfileList(string filePath)
+        {
+            List < List<string> > data = new List<List<string>>();
+            List<string> lines = new List<string>();
+
+            filePath += "index.csv";
+
+            try
+            { lines = File.ReadAllLines(filePath).ToList(); }
+            catch
+            {
+                MessageBox.Show("Unable to open file");
+                return null;
+            }
+
+            foreach (var line in lines)
+            {
+                string[] entries = line.Split(',');
+                string id = entries[0];
+                string profileName = entries[1];
+
+                data.Add(new List<string> { id, profileName });
+
+            }
+
+            return data;
         }
 
         public static void OpenFromCsv(this string filePath)

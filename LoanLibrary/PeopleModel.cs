@@ -26,6 +26,15 @@ namespace LoanLibrary
 
         public PeopleModel(string name)
         {
+            Loans = new List<LoanModel>();
+            FileName = $"{name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
+        }
+
+        public PeopleModel(int id, string name, string fileName)
+        {
+            Loans = new List<LoanModel>();
+            Id = id;
+            Name = name;
             FileName = $"{name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
         }
 

@@ -30,12 +30,12 @@
         {
             this.loanListBox = new System.Windows.Forms.ListBox();
             this.loanListBoxLabel = new System.Windows.Forms.Label();
-            this.calculationTypeValue = new System.Windows.Forms.TextBox();
+            this.monthsValue = new System.Windows.Forms.TextBox();
             this.aprLabel = new System.Windows.Forms.Label();
             this.aprValue = new System.Windows.Forms.TextBox();
             this.totalAmountLabel = new System.Windows.Forms.Label();
             this.totalAmountValue = new System.Windows.Forms.TextBox();
-            this.termLabel = new System.Windows.Forms.Label();
+            this.monthsLabel = new System.Windows.Forms.Label();
             this.personNameLabel = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
             this.addLoanButton = new System.Windows.Forms.Button();
@@ -65,12 +65,12 @@
             this.loanListBoxLabel.TabIndex = 1;
             this.loanListBoxLabel.Text = "Loans";
             // 
-            // calculationTypeValue
+            // monthsValue
             // 
-            this.calculationTypeValue.Location = new System.Drawing.Point(491, 263);
-            this.calculationTypeValue.Name = "calculationTypeValue";
-            this.calculationTypeValue.Size = new System.Drawing.Size(181, 35);
-            this.calculationTypeValue.TabIndex = 18;
+            this.monthsValue.Location = new System.Drawing.Point(491, 263);
+            this.monthsValue.Name = "monthsValue";
+            this.monthsValue.Size = new System.Drawing.Size(181, 35);
+            this.monthsValue.TabIndex = 18;
             // 
             // aprLabel
             // 
@@ -106,21 +106,21 @@
             this.totalAmountValue.Size = new System.Drawing.Size(181, 35);
             this.totalAmountValue.TabIndex = 14;
             // 
-            // termLabel
+            // monthsLabel
             // 
-            this.termLabel.AutoSize = true;
-            this.termLabel.Location = new System.Drawing.Point(329, 263);
-            this.termLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.termLabel.Name = "termLabel";
-            this.termLabel.Size = new System.Drawing.Size(151, 30);
-            this.termLabel.TabIndex = 19;
-            this.termLabel.Text = "Term (months):";
+            this.monthsLabel.AutoSize = true;
+            this.monthsLabel.Location = new System.Drawing.Point(329, 263);
+            this.monthsLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.monthsLabel.Name = "monthsLabel";
+            this.monthsLabel.Size = new System.Drawing.Size(89, 30);
+            this.monthsLabel.TabIndex = 19;
+            this.monthsLabel.Text = "Months:";
             // 
             // personNameLabel
             // 
             this.personNameLabel.AutoSize = true;
             this.personNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personNameLabel.Location = new System.Drawing.Point(422, 91);
+            this.personNameLabel.Location = new System.Drawing.Point(335, 99);
             this.personNameLabel.Name = "personNameLabel";
             this.personNameLabel.Size = new System.Drawing.Size(145, 45);
             this.personNameLabel.TabIndex = 20;
@@ -175,7 +175,7 @@
             // 
             this.profileLabel.AutoSize = true;
             this.profileLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileLabel.Location = new System.Drawing.Point(434, 46);
+            this.profileLabel.Location = new System.Drawing.Point(335, 54);
             this.profileLabel.Name = "profileLabel";
             this.profileLabel.Size = new System.Drawing.Size(121, 45);
             this.profileLabel.TabIndex = 25;
@@ -192,8 +192,8 @@
             this.Controls.Add(this.addLoanButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.personNameLabel);
-            this.Controls.Add(this.termLabel);
-            this.Controls.Add(this.calculationTypeValue);
+            this.Controls.Add(this.monthsLabel);
+            this.Controls.Add(this.monthsValue);
             this.Controls.Add(this.aprLabel);
             this.Controls.Add(this.aprValue);
             this.Controls.Add(this.totalAmountLabel);
@@ -213,12 +213,12 @@
 
         private System.Windows.Forms.ListBox loanListBox;
         private System.Windows.Forms.Label loanListBoxLabel;
-        private System.Windows.Forms.TextBox calculationTypeValue;
+        private System.Windows.Forms.TextBox monthsValue;
         private System.Windows.Forms.Label aprLabel;
         private System.Windows.Forms.TextBox aprValue;
         private System.Windows.Forms.Label totalAmountLabel;
         private System.Windows.Forms.TextBox totalAmountValue;
-        private System.Windows.Forms.Label termLabel;
+        private System.Windows.Forms.Label monthsLabel;
         private System.Windows.Forms.Label personNameLabel;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button addLoanButton;
