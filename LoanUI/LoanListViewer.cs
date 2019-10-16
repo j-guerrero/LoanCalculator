@@ -67,8 +67,17 @@ namespace LoanUI
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            // REMOVE LOAN FROM PersonModel.Loans
-            profile.Loans.RemoveAt(loanListBox.SelectedIndex);
+            // REMOVE LOAN FROM PersonModel.Loans = done
+            if(profile.Loans.ElementAtOrDefault(loanListBox.SelectedIndex) != null)
+            {
+                profile.Loans.RemoveAt(loanListBox.SelectedIndex);
+            }
+
+            else
+            {
+                MessageBox.Show("No item selected");
+                return;
+            }
 
             // REMOVE ITEM FROM loanListBox = DONE
             try{ loanListBox.Items.RemoveAt(loanListBox.SelectedIndex); }

@@ -199,13 +199,15 @@ namespace LoanLibrary
                 return;
             }
 
+            int i = 0;
             foreach (var loan in loans)
             {
-                string loanOutput = $"{loan.Id}" + ","
+                string loanOutput = $"{i}" + ","
                     + $"{loan.LoanAmount}" + ","
-                    + $"{loan.MinimumPayment}" + ","
+                    + $"{loan.Apr}" + ","
                     + $"{loan.Months}" + "\n";
                 output = string.Concat(output, loanOutput);
+                i++;
             }
 
             output = string.Concat(header, output);
