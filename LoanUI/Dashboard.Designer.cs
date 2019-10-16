@@ -38,10 +38,11 @@
             // 
             // loadProfileSelector
             // 
+            this.loadProfileSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.loadProfileSelector.FormattingEnabled = true;
             this.loadProfileSelector.Location = new System.Drawing.Point(143, 88);
             this.loadProfileSelector.Name = "loadProfileSelector";
-            this.loadProfileSelector.Size = new System.Drawing.Size(279, 38);
+            this.loadProfileSelector.Size = new System.Drawing.Size(279, 44);
             this.loadProfileSelector.TabIndex = 0;
             // 
             // loadProfileButton
@@ -70,7 +71,7 @@
             this.welcomeLabel.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.Location = new System.Drawing.Point(163, 20);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(237, 65);
+            this.welcomeLabel.Size = new System.Drawing.Size(295, 81);
             this.welcomeLabel.TabIndex = 3;
             this.welcomeLabel.Text = "Welcome";
             // 
@@ -97,7 +98,7 @@
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(562, 325);

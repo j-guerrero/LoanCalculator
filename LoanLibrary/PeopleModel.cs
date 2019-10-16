@@ -35,7 +35,7 @@ namespace LoanLibrary
             Loans = new List<LoanModel>();
             Id = id;
             Name = name;
-            FileName = $"{name}" + "_" + DateTime.Now.ToString("yyyy_MM_dd") + ".csv";
+            FileName = fileName;
         }
 
         public event EventHandler<string> LoanAddedEvent;

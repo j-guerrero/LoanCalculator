@@ -39,7 +39,7 @@
             // 
             this.createProfileLabel.AutoSize = true;
             this.createProfileLabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createProfileLabel.Location = new System.Drawing.Point(152, 25);
+            this.createProfileLabel.Location = new System.Drawing.Point(213, 23);
             this.createProfileLabel.Name = "createProfileLabel";
             this.createProfileLabel.Size = new System.Drawing.Size(212, 45);
             this.createProfileLabel.TabIndex = 0;
@@ -48,7 +48,7 @@
             // nameProfile
             // 
             this.nameProfile.AutoSize = true;
-            this.nameProfile.Location = new System.Drawing.Point(11, 109);
+            this.nameProfile.Location = new System.Drawing.Point(72, 107);
             this.nameProfile.Name = "nameProfile";
             this.nameProfile.Size = new System.Drawing.Size(74, 30);
             this.nameProfile.TabIndex = 1;
@@ -56,15 +56,15 @@
             // 
             // nameValue
             // 
-            this.nameValue.Location = new System.Drawing.Point(16, 142);
+            this.nameValue.Location = new System.Drawing.Point(77, 140);
+            this.nameValue.MaxLength = 20;
             this.nameValue.Name = "nameValue";
             this.nameValue.Size = new System.Drawing.Size(484, 35);
             this.nameValue.TabIndex = 2;
-            this.nameValue.MaxLength = 20;
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(30, 194);
+            this.createButton.Location = new System.Drawing.Point(91, 192);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(218, 79);
             this.createButton.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(268, 194);
+            this.cancelButton.Location = new System.Drawing.Point(329, 192);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(218, 79);
             this.cancelButton.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 294);
+            this.ClientSize = new System.Drawing.Size(633, 294);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.nameValue);

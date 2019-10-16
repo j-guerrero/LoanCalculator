@@ -16,50 +16,88 @@ namespace LoanLibrary
 
         public static string Name { get; set; }
 
-        // TO-DO --- Create function to save to file
-
-        // Open file
-        // Find max id
-        // Set ID = (MAX ID + 1)
-        // Take data from <Loan> object and input into file
-        // Save file
-
-        public static bool AddNewProfileToIndex(string filePath, string name)
+        /// <summary>
+        /// Function for adding new profile to CSV index file. Increments from last index placed in file
+        /// Takes in directory path from App.Config and adds "index.csv" to end
+        /// Returns a boolean flag to indicate success
+        /// </summary>
+        /// <param name="filePath"> File path where index.csv is saved</param>
+        /// <param name="name"> Name of profile to be associated with new ID</param>
+        /// <returns></returns>
+        public static bool AddNewProfileToIndex(string filePath, string name, string associatedFile)
         {
             bool saveSuccessful = true;
-            int length;
+            int selectedLine;
             int id;
 
+            string associatedFilePath = string.Concat(filePath, associatedFile);
             List<string> lines = new List<string>();
-            filePath += "index.csv";
-            MessageBox.Show($"{filePath}");
+            filePath =string.Concat(filePath, "index.csv");
 
-            // Open File
-            try
-            { lines = File.ReadAllLines(filePath).ToList(); }
-            catch
+            // Create new file with name @ index 0 IF file doesn't exist already
+            if (!File.Exists(filePath))
             {
-                saveSuccessful = false;
-                MessageBox.Show("Unable to open file");
-                return saveSuccessful;
+                using (var sw = File.CreateText(filePath))
+                {
+                    sw.WriteLine("0," + $"{name}" + "," + $"{associatedFile}");
+                    sw.Close();
+                }
             }
 
-            length = lines.Count() - 1;
-            string[] entries = lines[length].Split(',');
-            Int32.TryParse(entries[0], out id);
-
-            MessageBox.Show("Last Index = " + $"{id}");
-
-            string output = $"{(id+1).ToString()}" + "," + $"{name}" + "\n";
-
-            try
+            else
             {
-                File.AppendAllText(filePath, output);
+                // File will not be able to be read if open in other application such
+                // as Notepad or Excel
+                try
+                { lines = File.ReadAllLines(filePath).ToList(); }
+                catch
+                {
+                    saveSuccessful = false;
+                    MessageBox.Show("Unable to open file");
+                    return saveSuccessful;
+                }
+
+                selectedLine = lines.Count() - 1;
+                string[] entries = lines[selectedLine].Split(',');
+                Int32.TryParse(entries[0], out id);
+
+                // -- DEBUG MESSAGE -- 
+                MessageBox.Show("Last Index = " + $"{id}");
+
+                string output = $"{(id+1).ToString()}" + "," + $"{name}" + "," + $"{associatedFile}" + "\n";
+
+                try
+                {
+                    File.AppendAllText(filePath, output);
+                }
+                catch
+                {
+                    saveSuccessful = false;
+                    MessageBox.Show("Unable to save file " + filePath);
+                    return saveSuccessful;
+                }
+
             }
-            catch
+
+            if (!File.Exists(associatedFilePath))
+            {
+                using (var sw = File.CreateText(associatedFilePath))
+                {
+                    string date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                    sw.WriteLine($"{name}"+ "," + $"{date}" + "\n");
+                    sw.Close();
+                }
+            }
+
+            else
             {
                 saveSuccessful = false;
-                MessageBox.Show("Unable to save file " + filePath);
+                MessageBox.Show("Unable to create profile");
+
+                // remove last entry
+                var tempLines = File.ReadAllLines(filePath);
+                File.WriteAllLines(filePath, tempLines.Take(tempLines.Length - 1));
+
                 return saveSuccessful;
             }
 
@@ -72,7 +110,13 @@ namespace LoanLibrary
             List < List<string> > data = new List<List<string>>();
             List<string> lines = new List<string>();
 
-            filePath += "index.csv";
+            filePath = string.Concat(filePath, "index.csv");
+
+            if(!File.Exists(filePath))
+            {
+                MessageBox.Show("No index file exists");
+                return data;
+            }
 
             try
             { lines = File.ReadAllLines(filePath).ToList(); }
@@ -87,39 +131,34 @@ namespace LoanLibrary
                 string[] entries = line.Split(',');
                 string id = entries[0];
                 string profileName = entries[1];
+                string associatedFileName = entries[2];
 
-                data.Add(new List<string> { id, profileName });
+                data.Add(new List<string> { id, profileName, associatedFileName });
 
             }
 
             return data;
         }
 
-        public static void OpenFromCsv(this string filePath)
+        // TODO -- Create function that references this file from index.csv
+        public static void OpenFromCsv(PeopleModel profile)
         {
-            PeopleModel profile = new PeopleModel();
             List<string> lines = new List<string>();
-            bool header = true;
 
             try {
-                lines = File.ReadAllLines(filePath).ToList();
+                lines = File.ReadAllLines(profile.FileName).ToList();
             }
             catch {
                 MessageBox.Show("Unable to open file");
+                return;
             }
 
-            foreach (var line in lines)
-            { 
-                string[] entries = line.Split(',');
-
-                if(header)
+            if (lines.Count() > 1 && lines[1] != "")
+            {
+                foreach (var line in lines.Skip(1))
                 {
-                    profile.Name = entries[0];
-                    header = false;
-                }
+                    string[] entries = line.Split(',');
 
-                else
-                {
                     int id;
                     decimal total;
                     decimal apr;
@@ -127,19 +166,19 @@ namespace LoanLibrary
                     decimal minPay;
 
                     Int32.TryParse(entries[0], out id);
-                    Decimal.TryParse(entries[2], out total);
-                    Decimal.TryParse(entries[3], out apr);
-                    Int32.TryParse(entries[4], out term);
-                    Decimal.TryParse(entries[5], out minPay);
+                    Decimal.TryParse(entries[1], out total);
+                    Decimal.TryParse(entries[2], out apr);
+                    Int32.TryParse(entries[3], out term);
+                    Decimal.TryParse(entries[4], out minPay);
 
                     LoanModel tempLoan = new LoanModel(id, total, apr, term, minPay);
-                    // TODO -- LOAD SOMETHING INTO OBJECT
 
                     profile.AddToLoanList(tempLoan);
+
                 }
             }
+            
 
-            profile = null;
             lines = null;
             
         }

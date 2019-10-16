@@ -41,11 +41,15 @@ namespace LoanUI
 
         private void createButton_Click(object sender, EventArgs e)
         {
+            string associatedFile = string.Format("{0}.csv", System.IO.Path.GetRandomFileName().Substring(0, 8));
+            associatedFile = string.Concat("loans\\" + associatedFile);
+            
+
             if (ValidateName())
             {
                 if(TextConnectionModel.AddNewProfileToIndex(
                     ConfigurationManager.AppSettings["filePath"],
-                    nameValue.Text))
+                    nameValue.Text, associatedFile))
                 {
                     CloseWindow();
                 }

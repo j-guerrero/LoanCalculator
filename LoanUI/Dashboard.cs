@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace LoanUI
     public partial class Dashboard : Form
     {
         public bool externalWindow = false;
+
 
         public List<List<string>> data = new List<List<string>>();
 
@@ -34,12 +36,25 @@ namespace LoanUI
         private void loadProfileButton_Click(object sender, EventArgs e)
         {
           
+            // TODO -- find out why directory path from app settings adds "\\" instead of "\"
             if(ValidateProfile())
             {
-                LoanListViewer loanListViewer = new LoanListViewer(Int32.Parse(data[loadProfileSelector.SelectedIndex][0]), data[loadProfileSelector.SelectedIndex][1], "temp");
-                this.Hide();
-                loanListViewer.ShowDialog();
-                this.Close();
+                string dirPath = ConfigurationManager.AppSettings["filePath"] + data[loadProfileSelector.SelectedIndex][2].ToString();
+
+                if(File.Exists(dirPath))
+                {
+                    LoanListViewer loanListViewer = 
+                        new LoanListViewer(
+                            Int32.Parse(data[loadProfileSelector.SelectedIndex][0]),
+                            data[loadProfileSelector.SelectedIndex][1],
+                            dirPath);
+
+                    this.Hide();
+                    loanListViewer.ShowDialog();
+                    this.Close();
+                }
+
+                
             }
 
         }
@@ -59,16 +74,25 @@ namespace LoanUI
             loadProfileSelector.Items.Clear();
             data = null;
             data = TextConnectionModel.ImportProfileList(ConfigurationManager.AppSettings["filePath"]);
-
-            foreach(var line in data)
+            
+            if(data != null)
             {
-                string profileName = line[1];
+                foreach (var line in data)
+                {
+                    string profileName = line[1];
 
-                loadProfileSelector.Items.Add(profileName);
+                    loadProfileSelector.Items.Add(profileName);
+                }
+
+                try { loadProfileSelector.SelectedIndex = loadProfileSelector.Items.Count - 1; }
+                catch { }
             }
 
-            try { loadProfileSelector.SelectedIndex = loadProfileSelector.Items.Count-1; }
-            catch { }
+            else
+            {
+                loadProfileSelector.SelectedItem = "";
+            }
+            
         }
 
         private bool ValidateProfile()

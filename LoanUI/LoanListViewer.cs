@@ -19,15 +19,21 @@ namespace LoanUI
         public LoanListViewer()
         {
             InitializeComponent();
-           // LoadData(profile);
         }
 
         public LoanListViewer(int id, string name, string fileName)
         {
             InitializeComponent();
             profile = new PeopleModel(id, name, fileName);
+            InitializeLoans();
             WireUpForm();
             // LoadData(profile);
+        }
+
+        private void InitializeLoans()
+        {
+            TextConnectionModel.OpenFromCsv(profile);
+            LoadLoans();
         }
 
         private void LoadLoans()
@@ -52,7 +58,10 @@ namespace LoanUI
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            // Save to CSV file -- update info by ID row
+            // Open file stream to PeopleModel.fileName
+            // Will overwrite current file
+            // For every loan in list loan, write info to line
+            // Close file
         }
 
         private void removeButton_Click(object sender, EventArgs e)

@@ -138,7 +138,7 @@ namespace LoanUI
             // TextConnectionModel.SaveToCsv(pathName);
 
             // !!! -- DEBUGING --- SWITCH TO SAVE --- !!! 
-            TextConnectionModel.OpenFromCsv(pathName);
+            //TextConnectionModel.SaveToCsv(pathName);
 
         }
     }
