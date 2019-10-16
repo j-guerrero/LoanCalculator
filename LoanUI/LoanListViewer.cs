@@ -62,11 +62,13 @@ namespace LoanUI
             // Will overwrite current file
             // For every loan in list loan, write info to line
             // Close file
+            TextConnectionModel.SaveToCsv(profile);
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             // REMOVE LOAN FROM PersonModel.Loans
+            profile.Loans.RemoveAt(loanListBox.SelectedIndex);
 
             // REMOVE ITEM FROM loanListBox = DONE
             try{ loanListBox.Items.RemoveAt(loanListBox.SelectedIndex); }
@@ -83,7 +85,6 @@ namespace LoanUI
                 totalAmountValue.Text = "";
                 aprValue.Text = "";
                 monthsValue.Text = "";
-
             }
 
             else

@@ -163,15 +163,13 @@ namespace LoanLibrary
                     decimal total;
                     decimal apr;
                     int term;
-                    decimal minPay;
 
                     Int32.TryParse(entries[0], out id);
                     Decimal.TryParse(entries[1], out total);
                     Decimal.TryParse(entries[2], out apr);
                     Int32.TryParse(entries[3], out term);
-                    Decimal.TryParse(entries[4], out minPay);
 
-                    LoanModel tempLoan = new LoanModel(id, total, apr, term, minPay);
+                    LoanModel tempLoan = new LoanModel(id, total, apr, term);
 
                     profile.AddToLoanList(tempLoan);
 
@@ -182,6 +180,50 @@ namespace LoanLibrary
             lines = null;
             
         }
+
+        public static void SaveToCsv(PeopleModel profile)
+        {
+            List<string> lines = new List<string>();
+            List<LoanModel> loans = profile.Loans;
+
+            string output = "";
+            string header = "";
+
+            try
+            {
+                header = File.ReadAllLines(profile.FileName).First() + "\n";
+            }
+            catch
+            {
+                MessageBox.Show("Unable to access file");
+                return;
+            }
+
+            foreach (var loan in loans)
+            {
+                string loanOutput = $"{loan.Id}" + ","
+                    + $"{loan.LoanAmount}" + ","
+                    + $"{loan.MinimumPayment}" + ","
+                    + $"{loan.Months}" + "\n";
+                output = string.Concat(output, loanOutput);
+            }
+
+            output = string.Concat(header, output);
+
+            try
+            {
+                File.WriteAllText(profile.FileName, output);
+            }
+            catch
+            {
+                MessageBox.Show("Unable to save to file:" + $"{profile.FileName}");
+                return;
+            }
+
+            MessageBox.Show("Saved to file:" + $"{profile.FileName}");
+
+        }
+
     }
 
     

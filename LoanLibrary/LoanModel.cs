@@ -60,6 +60,15 @@ namespace LoanLibrary
 
         }
 
+        public LoanModel(int loanId, decimal total, decimal apr, int term)
+        {
+            Id = loanId;
+            LoanAmount = total;
+            Apr = apr;
+            Months = term;
+
+        }
+
         public void DisplayInfo()
         {
             MessageBox.Show(
