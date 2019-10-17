@@ -25,18 +25,21 @@ namespace LoanUI
             InitializeComponent();
         }
 
+        // Opens the Simple Calculator
         private void simpleCalculatorButton_Click(object sender, EventArgs e)
         {
-                InputForm calculator = new InputForm();
+                SimpleCalculator calculator = new SimpleCalculator();
                 this.Hide();
                 calculator.ShowDialog();
                 this.Close();
         }
 
+        /// <summary>
+        /// Validates selection and then sends profile selection data to new Loa List Viewer form.
+        /// </summary>
         private void loadProfileButton_Click(object sender, EventArgs e)
         {
           
-            // TODO -- find out why directory path from app settings adds "\\" instead of "\"
             if(ValidateProfile())
             {
                 string dirPath = ConfigurationManager.AppSettings["filePath"] + data[loadProfileSelector.SelectedIndex][2].ToString();
@@ -54,7 +57,7 @@ namespace LoanUI
                     this.Close();
                 }
 
-                
+                // -- Put some kind of message/catch here
             }
 
         }
@@ -73,7 +76,7 @@ namespace LoanUI
         {
             loadProfileSelector.Items.Clear();
             data = null;
-            data = TextConnectionModel.ImportProfileList(ConfigurationManager.AppSettings["filePath"]);
+            data = CsvModel.ImportProfileList(ConfigurationManager.AppSettings["filePath"]);
             
             if(data != null)
             {

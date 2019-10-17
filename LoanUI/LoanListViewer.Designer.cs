@@ -120,7 +120,7 @@
             // 
             this.personNameLabel.AutoSize = true;
             this.personNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personNameLabel.Location = new System.Drawing.Point(335, 99);
+            this.personNameLabel.Location = new System.Drawing.Point(373, 86);
             this.personNameLabel.Name = "personNameLabel";
             this.personNameLabel.Size = new System.Drawing.Size(145, 45);
             this.personNameLabel.TabIndex = 20;
@@ -175,7 +175,7 @@
             // 
             this.profileLabel.AutoSize = true;
             this.profileLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileLabel.Location = new System.Drawing.Point(335, 54);
+            this.profileLabel.Location = new System.Drawing.Point(328, 44);
             this.profileLabel.Name = "profileLabel";
             this.profileLabel.Size = new System.Drawing.Size(121, 45);
             this.profileLabel.TabIndex = 25;
@@ -185,6 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(689, 583);
             this.Controls.Add(this.profileLabel);
             this.Controls.Add(this.returnButton);
@@ -201,8 +202,10 @@
             this.Controls.Add(this.loanListBoxLabel);
             this.Controls.Add(this.loanListBox);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "LoanListViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Loan Viewer";
             this.ResumeLayout(false);
             this.PerformLayout();

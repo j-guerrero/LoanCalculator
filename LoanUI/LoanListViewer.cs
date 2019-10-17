@@ -32,7 +32,7 @@ namespace LoanUI
 
         private void InitializeLoans()
         {
-            TextConnectionModel.OpenFromCsv(profile);
+            CsvModel.OpenFromCsv(profile);
             LoadLoans();
         }
 
@@ -62,7 +62,7 @@ namespace LoanUI
             // Will overwrite current file
             // For every loan in list loan, write info to line
             // Close file
-            TextConnectionModel.SaveToCsv(profile);
+            CsvModel.SaveToCsv(profile);
         }
 
         private void removeButton_Click(object sender, EventArgs e)

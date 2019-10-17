@@ -40,14 +40,14 @@
             // 
             this.loadProfileSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.loadProfileSelector.FormattingEnabled = true;
-            this.loadProfileSelector.Location = new System.Drawing.Point(143, 88);
+            this.loadProfileSelector.Location = new System.Drawing.Point(143, 118);
             this.loadProfileSelector.Name = "loadProfileSelector";
-            this.loadProfileSelector.Size = new System.Drawing.Size(279, 44);
+            this.loadProfileSelector.Size = new System.Drawing.Size(279, 38);
             this.loadProfileSelector.TabIndex = 0;
             // 
             // loadProfileButton
             // 
-            this.loadProfileButton.Location = new System.Drawing.Point(143, 132);
+            this.loadProfileButton.Location = new System.Drawing.Point(143, 162);
             this.loadProfileButton.Name = "loadProfileButton";
             this.loadProfileButton.Size = new System.Drawing.Size(278, 37);
             this.loadProfileButton.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // simpleCalculatorButton
             // 
-            this.simpleCalculatorButton.Location = new System.Drawing.Point(143, 253);
+            this.simpleCalculatorButton.Location = new System.Drawing.Point(143, 283);
             this.simpleCalculatorButton.Name = "simpleCalculatorButton";
             this.simpleCalculatorButton.Size = new System.Drawing.Size(278, 49);
             this.simpleCalculatorButton.TabIndex = 2;
@@ -69,15 +69,16 @@
             // 
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(163, 20);
+            this.welcomeLabel.ForeColor = System.Drawing.Color.Teal;
+            this.welcomeLabel.Location = new System.Drawing.Point(33, 39);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(295, 81);
+            this.welcomeLabel.Size = new System.Drawing.Size(496, 65);
             this.welcomeLabel.TabIndex = 3;
-            this.welcomeLabel.Text = "Welcome";
+            this.welcomeLabel.Text = "Loan Tracking Utility";
             // 
             // createProfileButton
             // 
-            this.createProfileButton.Location = new System.Drawing.Point(143, 175);
+            this.createProfileButton.Location = new System.Drawing.Point(143, 205);
             this.createProfileButton.Name = "createProfileButton";
             this.createProfileButton.Size = new System.Drawing.Size(278, 37);
             this.createProfileButton.TabIndex = 4;
@@ -87,10 +88,10 @@
             // 
             // importDataButton
             // 
-            this.importDataButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importDataButton.Location = new System.Drawing.Point(62, 70);
+            this.importDataButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importDataButton.Location = new System.Drawing.Point(69, 118);
             this.importDataButton.Name = "importDataButton";
-            this.importDataButton.Size = new System.Drawing.Size(75, 73);
+            this.importDataButton.Size = new System.Drawing.Size(68, 38);
             this.importDataButton.TabIndex = 5;
             this.importDataButton.Text = "Import Data";
             this.importDataButton.UseVisualStyleBackColor = true;
@@ -98,10 +99,10 @@
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(562, 325);
+            this.ClientSize = new System.Drawing.Size(562, 370);
             this.Controls.Add(this.importDataButton);
             this.Controls.Add(this.createProfileButton);
             this.Controls.Add(this.welcomeLabel);
@@ -109,6 +110,7 @@
             this.Controls.Add(this.loadProfileButton);
             this.Controls.Add(this.loadProfileSelector);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "Dashboard";
             this.Text = "Dashboard";

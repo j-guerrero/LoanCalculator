@@ -9,12 +9,8 @@ using System.Windows.Forms;
 
 namespace LoanLibrary
 {
-    public static class TextConnectionModel
+    public static class CsvModel
     {
-
-        public static int Id { get; set; }
-
-        public static string Name { get; set; }
 
         /// <summary>
         /// Function for adding new profile to CSV index file. Increments from last index placed in file
@@ -34,6 +30,7 @@ namespace LoanLibrary
             List<string> lines = new List<string>();
             filePath =string.Concat(filePath, "index.csv");
 
+            #region Index Check
             // Create new file with name @ index 0 IF file doesn't exist already
             if (!File.Exists(filePath))
             {
@@ -44,6 +41,7 @@ namespace LoanLibrary
                 }
             }
 
+            // If file @ filePath exists
             else
             {
                 // File will not be able to be read if open in other application such
@@ -57,19 +55,15 @@ namespace LoanLibrary
                     return saveSuccessful;
                 }
 
+                // Finds ID of last row and increments by new profile ID by 1
                 selectedLine = lines.Count() - 1;
                 string[] entries = lines[selectedLine].Split(',');
                 Int32.TryParse(entries[0], out id);
-
-                // -- DEBUG MESSAGE -- 
-                MessageBox.Show("Last Index = " + $"{id}");
-
                 string output = $"{(id+1).ToString()}" + "," + $"{name}" + "," + $"{associatedFile}" + "\n";
 
+                // Append new profile info to last line of index file
                 try
-                {
-                    File.AppendAllText(filePath, output);
-                }
+                { File.AppendAllText(filePath, output); }
                 catch
                 {
                     saveSuccessful = false;
@@ -78,7 +72,10 @@ namespace LoanLibrary
                 }
 
             }
+            #endregion
 
+            #region Associated File Check
+            // Add associated loan info file to loans folder
             if (!File.Exists(associatedFilePath))
             {
                 using (var sw = File.CreateText(associatedFilePath))
@@ -101,6 +98,8 @@ namespace LoanLibrary
                 return saveSuccessful;
             }
 
+            #endregion
+
             return saveSuccessful;
 
         }
@@ -112,10 +111,11 @@ namespace LoanLibrary
 
             filePath = string.Concat(filePath, "index.csv");
 
+            // File validation
             if(!File.Exists(filePath))
             {
                 MessageBox.Show("No index file exists");
-                return data;
+                return null;
             }
 
             try
@@ -126,6 +126,7 @@ namespace LoanLibrary
                 return null;
             }
 
+            // Add each profile line to list
             foreach (var line in lines)
             {
                 string[] entries = line.Split(',');
@@ -145,6 +146,7 @@ namespace LoanLibrary
         {
             List<string> lines = new List<string>();
 
+            // Read lines from file
             try {
                 lines = File.ReadAllLines(profile.FileName).ToList();
             }
@@ -153,6 +155,7 @@ namespace LoanLibrary
                 return;
             }
 
+            // Parse through each line and add to loan list
             if (lines.Count() > 1 && lines[1] != "")
             {
                 foreach (var line in lines.Skip(1))

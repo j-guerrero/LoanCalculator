@@ -1,6 +1,6 @@
 ﻿namespace LoanUI
 {
-    partial class InputForm
+    partial class SimpleCalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,6 @@
             this.totalAmountPaidValue = new System.Windows.Forms.TextBox();
             this.totalAmountPaidLabel = new System.Windows.Forms.Label();
             this.minimumMonthlyPaymentValue = new System.Windows.Forms.TextBox();
-            this.saveButton = new System.Windows.Forms.Button();
             this.calculationsBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +55,7 @@
             this.loanCalculatorLabel.Location = new System.Drawing.Point(139, 31);
             this.loanCalculatorLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.loanCalculatorLabel.Name = "loanCalculatorLabel";
-            this.loanCalculatorLabel.Size = new System.Drawing.Size(263, 46);
+            this.loanCalculatorLabel.Size = new System.Drawing.Size(208, 37);
             this.loanCalculatorLabel.TabIndex = 0;
             this.loanCalculatorLabel.Text = "Loan Calculator";
             // 
@@ -64,7 +63,7 @@
             // 
             this.totalAmountValue.Location = new System.Drawing.Point(220, 102);
             this.totalAmountValue.Name = "totalAmountValue";
-            this.totalAmountValue.Size = new System.Drawing.Size(181, 42);
+            this.totalAmountValue.Size = new System.Drawing.Size(181, 35);
             this.totalAmountValue.TabIndex = 1;
             // 
             // totalAmountLabel
@@ -73,7 +72,7 @@
             this.totalAmountLabel.Location = new System.Drawing.Point(68, 105);
             this.totalAmountLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.totalAmountLabel.Name = "totalAmountLabel";
-            this.totalAmountLabel.Size = new System.Drawing.Size(182, 37);
+            this.totalAmountLabel.Size = new System.Drawing.Size(143, 30);
             this.totalAmountLabel.TabIndex = 2;
             this.totalAmountLabel.Text = "Total Amount:";
             // 
@@ -93,7 +92,7 @@
             this.aprLabel.Location = new System.Drawing.Point(68, 151);
             this.aprLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.aprLabel.Name = "aprLabel";
-            this.aprLabel.Size = new System.Drawing.Size(145, 46);
+            this.aprLabel.Size = new System.Drawing.Size(92, 30);
             this.aprLabel.TabIndex = 6;
             this.aprLabel.Text = "APR (%):";
             // 
@@ -101,14 +100,14 @@
             // 
             this.aprValue.Location = new System.Drawing.Point(220, 148);
             this.aprValue.Name = "aprValue";
-            this.aprValue.Size = new System.Drawing.Size(181, 42);
+            this.aprValue.Size = new System.Drawing.Size(181, 35);
             this.aprValue.TabIndex = 5;
             // 
             // calculationTypeValue
             // 
             this.calculationTypeValue.Location = new System.Drawing.Point(220, 195);
             this.calculationTypeValue.Name = "calculationTypeValue";
-            this.calculationTypeValue.Size = new System.Drawing.Size(181, 42);
+            this.calculationTypeValue.Size = new System.Drawing.Size(181, 35);
             this.calculationTypeValue.TabIndex = 7;
             // 
             // minimumMonthlyPaymentLabel
@@ -116,7 +115,7 @@
             this.minimumMonthlyPaymentLabel.AutoSize = true;
             this.minimumMonthlyPaymentLabel.Location = new System.Drawing.Point(80, 53);
             this.minimumMonthlyPaymentLabel.Name = "minimumMonthlyPaymentLabel";
-            this.minimumMonthlyPaymentLabel.Size = new System.Drawing.Size(352, 37);
+            this.minimumMonthlyPaymentLabel.Size = new System.Drawing.Size(276, 30);
             this.minimumMonthlyPaymentLabel.TabIndex = 9;
             this.minimumMonthlyPaymentLabel.Text = "Minimum Monthly Payment:\r\n";
             this.minimumMonthlyPaymentLabel.Visible = false;
@@ -125,7 +124,7 @@
             // 
             this.clearFormButton.Location = new System.Drawing.Point(241, 464);
             this.clearFormButton.Name = "clearFormButton";
-            this.clearFormButton.Size = new System.Drawing.Size(191, 52);
+            this.clearFormButton.Size = new System.Drawing.Size(191, 110);
             this.clearFormButton.TabIndex = 4;
             this.clearFormButton.Text = "Clear Form";
             this.clearFormButton.UseVisualStyleBackColor = true;
@@ -138,7 +137,7 @@
             this.totalInterestPaidValue.Location = new System.Drawing.Point(221, 174);
             this.totalInterestPaidValue.Name = "totalInterestPaidValue";
             this.totalInterestPaidValue.ReadOnly = true;
-            this.totalInterestPaidValue.Size = new System.Drawing.Size(181, 35);
+            this.totalInterestPaidValue.Size = new System.Drawing.Size(181, 28);
             this.totalInterestPaidValue.TabIndex = 12;
             this.totalInterestPaidValue.Visible = false;
             // 
@@ -147,7 +146,7 @@
             this.totalInterestLabel.AutoSize = true;
             this.totalInterestLabel.Location = new System.Drawing.Point(245, 141);
             this.totalInterestLabel.Name = "totalInterestLabel";
-            this.totalInterestLabel.Size = new System.Drawing.Size(169, 37);
+            this.totalInterestLabel.Size = new System.Drawing.Size(133, 30);
             this.totalInterestLabel.TabIndex = 11;
             this.totalInterestLabel.Text = "Interest Paid:\r\n";
             this.totalInterestLabel.Visible = false;
@@ -161,7 +160,7 @@
             "Min Pay"});
             this.calculationTypeSelector.Location = new System.Drawing.Point(73, 192);
             this.calculationTypeSelector.Name = "calculationTypeSelector";
-            this.calculationTypeSelector.Size = new System.Drawing.Size(138, 44);
+            this.calculationTypeSelector.Size = new System.Drawing.Size(138, 38);
             this.calculationTypeSelector.TabIndex = 13;
             // 
             // calculationsBox
@@ -186,7 +185,7 @@
             this.totalAmountPaidValue.Location = new System.Drawing.Point(37, 174);
             this.totalAmountPaidValue.Name = "totalAmountPaidValue";
             this.totalAmountPaidValue.ReadOnly = true;
-            this.totalAmountPaidValue.Size = new System.Drawing.Size(181, 35);
+            this.totalAmountPaidValue.Size = new System.Drawing.Size(181, 28);
             this.totalAmountPaidValue.TabIndex = 14;
             this.totalAmountPaidValue.Visible = false;
             // 
@@ -195,7 +194,7 @@
             this.totalAmountPaidLabel.AutoSize = true;
             this.totalAmountPaidLabel.Location = new System.Drawing.Point(33, 141);
             this.totalAmountPaidLabel.Name = "totalAmountPaidLabel";
-            this.totalAmountPaidLabel.Size = new System.Drawing.Size(240, 37);
+            this.totalAmountPaidLabel.Size = new System.Drawing.Size(188, 30);
             this.totalAmountPaidLabel.TabIndex = 13;
             this.totalAmountPaidLabel.Text = "Total Amount Paid:\r\n";
             this.totalAmountPaidLabel.Visible = false;
@@ -207,29 +206,16 @@
             this.minimumMonthlyPaymentValue.Location = new System.Drawing.Point(128, 97);
             this.minimumMonthlyPaymentValue.Name = "minimumMonthlyPaymentValue";
             this.minimumMonthlyPaymentValue.ReadOnly = true;
-            this.minimumMonthlyPaymentValue.Size = new System.Drawing.Size(181, 35);
+            this.minimumMonthlyPaymentValue.Size = new System.Drawing.Size(181, 28);
             this.minimumMonthlyPaymentValue.TabIndex = 10;
             this.minimumMonthlyPaymentValue.Visible = false;
             // 
-            // saveButton
+            // SimpleCalculator
             // 
-            this.saveButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(241, 522);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(191, 52);
-            this.saveButton.TabIndex = 15;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // InputForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(469, 591);
-            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.calculationTypeSelector);
             this.Controls.Add(this.calculationTypeValue);
             this.Controls.Add(this.aprLabel);
@@ -244,7 +230,7 @@
             this.ForeColor = System.Drawing.Color.DodgerBlue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "InputForm";
+            this.Name = "SimpleCalculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loan Calculator";
             this.calculationsBox.ResumeLayout(false);
@@ -272,7 +258,6 @@
         private System.Windows.Forms.TextBox minimumMonthlyPaymentValue;
         private System.Windows.Forms.TextBox totalAmountPaidValue;
         private System.Windows.Forms.Label totalAmountPaidLabel;
-        private System.Windows.Forms.Button saveButton;
     }
 }
 

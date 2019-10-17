@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace LoanUI
 {
-    public partial class InputForm : Form
+    public partial class SimpleCalculator : Form
     {
         [Flags]
         public enum formType { 
@@ -20,7 +20,7 @@ namespace LoanUI
             minPay = 1
         };
 
-        public InputForm()
+        public SimpleCalculator()
         {
             InitializeComponent();
         }

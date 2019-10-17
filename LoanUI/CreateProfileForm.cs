@@ -47,7 +47,7 @@ namespace LoanUI
 
             if (ValidateName())
             {
-                if(TextConnectionModel.AddNewProfileToIndex(
+                if(CsvModel.AddNewProfileToIndex(
                     ConfigurationManager.AppSettings["filePath"],
                     nameValue.Text, associatedFile))
                 {

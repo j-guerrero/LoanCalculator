@@ -60,11 +60,11 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputForm.cs">
+    <Compile Include="SimpleCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputForm.Designer.cs">
-      <DependentUpon>InputForm.cs</DependentUpon>
+    <Compile Include="SimpleCalculator.Designer.cs">
+      <DependentUpon>SimpleCalculator.cs</DependentUpon>
     </Compile>
     <Compile Include="LoanListViewer.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputForm.resx">
-      <DependentUpon>InputForm.cs</DependentUpon>
+    <EmbeddedResource Include="SimpleCalculator.resx">
+      <DependentUpon>SimpleCalculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoanListViewer.resx">
       <DependentUpon>LoanListViewer.cs</DependentUpon>
